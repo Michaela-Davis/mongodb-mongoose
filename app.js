@@ -4,6 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// Database
+var mongo = require('mongodb');
+// var monk = require('monk');
+// var db = monk('localhost:27017/mongoose-practice');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose-practice');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  //db connection
+});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
