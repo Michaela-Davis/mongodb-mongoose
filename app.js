@@ -8,12 +8,43 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 // var monk = require('monk');
 // var db = monk('localhost:27017/mongoose-practice');
+
+// MONGOOSE
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/mongoose-practice');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  //db connection
+
+  // Reference Schema with one property of Name
+  var kittySchema = mongoose.Schema({
+    name: String
+  });
+
+  kittySchema.methods.speak = function() {
+    var greeting = this.name
+    ? "Meow name is " + this.name
+    : "I don't have a name";
+    console.log(greeting);
+  }
+
+  // Compile schema into a model
+  //Each document created with the model will be a kitten with properties and behaviors declared in Schema
+  var Kitten = mongoose.model('Kitten', kittySchema);
+
+  //Create an instance of a kitten named Silence
+  var silence = new Kitten({ name: 'Silence' });
+  console.log(silence.name);
+  silence.speak();
+
+  var fluffy = new Kitten({ name: 'Fluffy' });
+  fluffy.speak();
+
+  Kitten.find(function(err, kittens) {
+    if (err) return console.error(err);
+    console.log(kittens);
+  })
+
 });
 
 var index = require('./routes/index');
