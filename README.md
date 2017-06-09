@@ -13,7 +13,7 @@ _This web page uses Node.js as well as MongoDB and Express to set up and interac
 * Run `npm install` to install all dependencies as listed in the package.json and file for project.
 * Navigate into the project directory, and into the mongodb folder, and then into the bin folder. Inside this folder in the terminal, (if using MAC OSX) type: 
 ```
-./mongod --dbpath ~/desktop/nodetest1/data/db
+./mongod --dbpath ~/desktop/mongoose-practice/data/db
 ```
 * In a new terminal window (if using MAC OSX), navigate to the same bin folder, and type the following:
 ```
