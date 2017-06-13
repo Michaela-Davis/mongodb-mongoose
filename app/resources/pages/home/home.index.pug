@@ -1,0 +1,9 @@
+extends /layout.pug
+
+block content
+    h1 Create a new kitty
+    form(method="POST" action="/")
+        label Kitty Name: &nbsp;
+        input(type="text" name="kittyName" value="")
+        | &nbsp;
+        input(type="submit" value="Save")

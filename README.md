@@ -1,55 +1,29 @@
-# _MongoDB and Mongoose Practice Project_
+# Tips for starting your first express project
 
-#### _This web page is practice working with Node.js linking to MongoDB with Mongoose, 09 June 2017_
+## Starting your app
 
-#### By _**Erica Wright**_
+### Entry point
+It's best to start your app via npm. You can do this
+by adding an entry to the 'scripts' property of the
+`packages.json` file.
 
-## Description
+### Nodemon
+Nodemon is a utility that watches your project's files
+for changes and automatically restarts the server
+whenever a change is detected. It saves a lot of 
+development time.
+ 
 
-_This web page uses Node.js as well as MongoDB and Express to set up and interact with a Mongo database. This web page also uses Mongoose for practice in setting up mongoDB database schemas and interacting with them._
+## Creating files
 
-## Setup/Installation Requirements
+### Strict mode
+Always start with 'use strict' on the first line of the file. It enables 'strict mode',
+which helps with some stuff. More info [here](https://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it)
 
-* Run `npm install` to install all dependencies as listed in the package.json and file for project.
-* Navigate into the project directory, and into the mongodb folder, and then into the bin folder. Inside this folder in the terminal, (if using MAC OSX) type: 
-```
-./mongod --dbpath ~/desktop/mongoose-practice/data/db
-```
-* In a new terminal window (if using MAC OSX), navigate to the same bin folder, and type the following:
-```
-./mongo
-```
-to launch Mongo.
+### Variable scoping
+'const' and 'let' are in, 'var' is out. Const and let both do a much better job of 
+controlling the variable's scope, which [helps makes code cleaner](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Scoping_rules_2).
 
-* In the root directory of the project folder, type:
-```
-npm start
-```
-to launch server and display page at localhost:3000.
-
-## Known Bugs
-
-_None so far._
-
-## Support and contact details
-
-_Please contact ericaw21@gmail.com with concerns or comments._
-
-## Technologies Used
-
-* _Javascript_
-* _jQuery_
-* _Node_
-* _CSS_
-* _HTML_
-* _MongoDB_
-* _Jade_
-* _Express_
-* _Mongoose_
-
-
-### License
-
-*MIT license*
-
-Copyright (c) 2017 **Erica Wright** All Rights Reserved.
+### Export statement
+It's best practice to always put your `module.exports` statement at the top of the page. This improves 
+file readability. 
