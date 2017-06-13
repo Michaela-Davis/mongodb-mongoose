@@ -1,6 +1,13 @@
 extends /layout.pug
 
 block content
+    h1 Kitty List
+    ul
+    each kitty, i in kitties
+        li
+            kitty.name
+
+
     h1 Create a new kitty
     form(method="POST" action="/")
         label Kitty Name: &nbsp;

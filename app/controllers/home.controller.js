@@ -7,10 +7,23 @@ module.exports = {
   save
 };
 
+//Called on '/' GET, pulls list of all kittens in database
 function index(req, res, next) {
-  res.render('home/home.index.pug', { title: 'Express TEST'});
-}
+  KittenModel(mongoose.connection).find(function (err, kittens) {
+    if (err) return console.error(err);
+    console.log(kittens);
+    for (var i = 0; i < kittens.length; i++) {
+      console.log(kittens[i].name);
+    }
+    res.render('home/home.index.pug', {
+      "kitties" : kittens
+    });
+  });
 
+  // res.render('home/home.index.pug', { title: 'Express TEST'});
+};
+
+//Called on '/' POST, saves new kitty to database on form submit
 function save(req, res, next) {
     let kittyName = req.body.kittyName || '';
 
